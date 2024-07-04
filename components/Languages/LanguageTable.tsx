@@ -1,4 +1,4 @@
-// components/LanguageTable.tsx
+import React from "react";
 import {
   Table,
   TableBody,
@@ -7,20 +7,34 @@ import {
   TableHeader,
   TableRow,
   TableCaption,
-} from "@/components/ui/table";
-import Link from "next/link";
-
-import languages from "@/data/language";
-import { Language } from "@/types/languages";
+} from "@/components/ui/table"; // Example import from your UI library
+import { Language } from "@/types/languages"; // Example import for Language type
 
 interface LanguageTableProps {
-  limit?: number;
   title?: string;
+  limit?: number;
+  languages: Language[];
+  onEdit: (language: Language) => void;
+  onDelete: (language_code: string) => void;
 }
 
-const LanguageTable = ({ limit, title }: LanguageTableProps) => {
-  // Assuming no sorting by date now, just limit
-  const filteredLanguages = limit ? languages.slice(0, limit) : languages;
+const LanguageTable = ({
+  title,
+  limit,
+  languages,
+  onEdit,
+  onDelete,
+}: LanguageTableProps) => {
+  const handleEditClick = (language: Language) => {
+    onEdit(language);
+  };
+
+  const handleDeleteClick = (language: string) => {
+    onDelete(language);
+  };
+
+  // Limit the number of languages displayed if a limit is set
+  const displayedLanguages = limit ? languages.slice(0, limit) : languages;
 
   return (
     <div className="mt-10">
@@ -32,16 +46,41 @@ const LanguageTable = ({ limit, title }: LanguageTableProps) => {
             <TableHead>Language Code</TableHead>
             <TableHead>Language Name</TableHead>
             <TableHead>Is Default</TableHead>
+            <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {filteredLanguages.map(({ language_code, language_name, is_default }) => (
-            <TableRow key={language_code}>
-              <TableCell>{language_code}</TableCell>
-              <TableCell>{language_name}</TableCell>
-              <TableCell>{is_default ? "Yes" : "No"}</TableCell>
-            </TableRow>
-          ))}
+          {displayedLanguages.map(
+            ({ language_code, language_name, is_default }) => (
+              <TableRow key={language_code}>
+                <TableCell>{language_code}</TableCell>
+                <TableCell>{language_name}</TableCell>
+                <TableCell>{is_default ? "Yes" : "No"}</TableCell>
+                <TableCell>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() =>
+                        handleEditClick({
+                          language_code,
+                          language_name,
+                          is_default,
+                        })
+                      }
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteClick(language_code)}
+                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            )
+          )}
         </TableBody>
       </Table>
     </div>

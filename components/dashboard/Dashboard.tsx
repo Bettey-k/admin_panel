@@ -5,7 +5,7 @@ interface DashboardCardProps {
   count: number;
   icon: React.ReactElement<LucideIcon>;
 }
-const DashboardCard = ({title,count,icon}:DashboardCardProps) => {
+const DashboardCard = ({ title, count, icon }: DashboardCardProps) => {
   return (
     <Card className="bg-slate-100 dark:bg-slate-800 p-4 pb-0">
       <CardContent>

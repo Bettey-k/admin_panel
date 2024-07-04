@@ -1,5 +1,7 @@
+import { Language } from "@/types/languages";
+
 // data/language.ts
-const Languages = [
+const Languages : Language[]= [
   {
     language_code: "en",
     language_name: "English",

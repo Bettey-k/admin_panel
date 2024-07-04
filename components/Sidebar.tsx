@@ -28,16 +28,13 @@ const Sidebar = () => {
         <CommandGroup heading="Suggestions">
           <CommandItem>
             <LayoutDashboard className="mr-2 h-4 w-4" />
-            <Link
-              href="/dashboard"
-              className="inline-block hover:text-slate-500"
-            >
+            <Link href="/" className="inline-block hover:text-slate-500">
               Dashboard
             </Link>
           </CommandItem>
           <CommandItem>
             <Newspaper className="mr-2 h-4 w-4" />
-            <Link href="/Language"> Language</Link>
+            <Link href="/main/Language"> Language</Link>
           </CommandItem>
           <CommandItem>
             <Folder className="mr-2 h-4 w-4" />
