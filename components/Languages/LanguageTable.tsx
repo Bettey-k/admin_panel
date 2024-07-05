@@ -7,8 +7,8 @@ import {
   TableHeader,
   TableRow,
   TableCaption,
-} from "@/components/ui/table"; // Example import from your UI library
-import { Language } from "@/types/languages"; // Example import for Language type
+} from "@/components/ui/table"; 
+import { Language } from "@/types/languages"; 
 
 interface LanguageTableProps {
   title?: string;
@@ -33,7 +33,6 @@ const LanguageTable = ({
     onDelete(language);
   };
 
-  // Limit the number of languages displayed if a limit is set
   const displayedLanguages = limit ? languages.slice(0, limit) : languages;
 
   return (

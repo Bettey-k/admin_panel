@@ -1,6 +1,6 @@
 import { Language } from "@/types/languages";
 
-// data/language.ts
+
 const Languages : Language[]= [
   {
     language_code: "en",
@@ -22,7 +22,6 @@ const Languages : Language[]= [
     language_name: "German",
     is_default: false,
   },
-  // Add more languages as needed
 ];
 
 export default Languages;

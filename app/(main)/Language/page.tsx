@@ -22,7 +22,6 @@ const LanguagePage = () => {
   };
 
   const handleSaveLanguage = (editedLanguage: Language) => {
-    // Function to save or update language locally
     const existingLanguageIndex = languages.findIndex(
       (lang) => lang.language_code === editedLanguage.language_code
     );
@@ -41,7 +40,7 @@ const LanguagePage = () => {
       setLanguages([...languages, newLanguage]);
       toast.success("Language added successfully!");
     }
-    setShowPopup(null); // Close the popup after saving
+    setShowPopup(null); 
   }; 
 
   const handleDeleteLanguage = () => {
@@ -66,7 +65,7 @@ const LanguagePage = () => {
       <div className="flex justify-between items-center">
         <h3 className="text-3xl font-bold mb-4">Languages</h3>
         <button
-          onClick={() => togglePopup()} // Open popup for adding
+          onClick={() => togglePopup()} 
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Add Language
@@ -136,7 +135,7 @@ function LanguageForm(props: {
       language_name: languageName,
       is_default: isDefault,
     };
-    props.onSave(editedLanguage); // Call onSave function passed from parent
+    props.onSave(editedLanguage); 
   };
 
   return (

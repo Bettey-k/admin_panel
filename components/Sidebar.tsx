@@ -34,7 +34,7 @@ const Sidebar = () => {
           </CommandItem>
           <CommandItem>
             <Newspaper className="mr-2 h-4 w-4" />
-            <Link href="/main/Language"> Language</Link>
+            <Link href="/Language"> Language</Link>
           </CommandItem>
           <CommandItem>
             <Folder className="mr-2 h-4 w-4" />
