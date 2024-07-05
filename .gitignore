@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Ignore all JSON files
+*.json
+
+# But keep this specific JSON file
+!important.json
+
+# Ignore all JSON files in the config directory
+config/*.json
