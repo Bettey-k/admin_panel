@@ -57,7 +57,7 @@ const LoginForm = () => {
       <CardHeader>
         <CardTitle>Login</CardTitle>
         <CardDescription>
-          Log into your account with your credentials
+          Log into your account   
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
