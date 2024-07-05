@@ -42,7 +42,7 @@ const LanguagePage = () => {
       toast.success("Language added successfully!");
     }
     setShowPopup(null); // Close the popup after saving
-  };
+  }; 
 
   const handleDeleteLanguage = () => {
     // Function to delete language locally
